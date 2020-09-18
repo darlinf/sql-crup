@@ -1,0 +1,32 @@
+﻿@model List<sql_crup.Models.Persons>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">LastName</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <td scope="col">Options</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>@item.LastName</td>
+            <td>@item.FirstName</td>
+            <td>@item.Address</td>
+            <td>@item.City</td>
+            <td>
+                <a class="btn-danger" asp-action="Delete" asp-route-id="@item.PersonID">Delete</a>
+                <a class="btn-danger" asp-action="Edit" asp-route-id="@item.PersonID">Edit</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
